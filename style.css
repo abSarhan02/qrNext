@@ -1,0 +1,219 @@
+:root {
+    --primary: #8b5cf6;
+    --primary-hover: #7c3aed;
+}
+
+body {
+    background: radial-gradient(1200px 800px at 10% 10%,
+            rgba(167, 139, 250, 0.22),
+            transparent 40%),
+        radial-gradient(900px 900px at 50% 90%,
+            rgba(139, 92, 246, 0.2),
+            transparent 55%),
+        radial-gradient(1200px 900px at 120% -20%,
+            rgba(74, 0, 224, 0.25),
+            transparent 60%),
+        linear-gradient(180deg, #1b1035, #0f0a22 40%, #130927);
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    color: #f9fafb;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="10" fill="%23a78bfa" opacity="0.8"/></svg>'),
+        auto;
+}
+
+
+/* Cursor for all interactive elements */
+button,
+a,
+.choice,
+.nav-btn,
+.hat {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="%238b5cf6"/></svg>') 16 16,
+        auto !important;
+}
+
+/* Stelle animate */
+.stars-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#stars,
+#stars2,
+#stars3 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    animation: animStar 50s linear infinite;
+}
+
+#stars2 {
+    animation-duration: 100s;
+}
+
+#stars3 {
+    animation-duration: 150s;
+}
+
+@keyframes animStar {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-200vh);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card trasparente con blur */
+.quiz-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 32px !important;
+}
+
+.hat {
+    width: 120px;
+    height: 120px;
+    background-image: url("cappellino-viola.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.hat:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.qrCode {
+    width: 120px;
+    height: 120px;
+    background:url(qr.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.choice {
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    color: #f9fafb !important;
+    border-radius: 16px !important;
+}
+
+.choice:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    border-color: rgba(167, 139, 250, 0.6) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.choice.selected {
+    background: linear-gradient(135deg,
+            rgba(124, 58, 237, 0.9),
+            rgba(168, 85, 247, 0.9)) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+}
+
+.nav-btn {
+    border-radius: 999px !important;
+}
+
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 24px;
+    animation: sparkleFloat 2s ease-out forwards;
+    z-index: 9999;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0);
+    }
+}
+
+/* Brillantini più piccoli per il mouse */
+.mouse-sparkle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 12px;
+    animation: mouseSparkleFloat 1.5s ease-out forwards;
+    z-index: 9998;
+}
+
+@keyframes mouseSparkleFloat {
+    0% {
+        opacity: 0.8;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(0) rotate(360deg);
+    }
+}
+
+.house-verde {
+    color: #10b981;
+}
+
+.house-giallo {
+    color: #f59e0b;
+}
+
+.house-blu {
+    color: #a78bfa;
+}
+
+.house-rosso {
+    color: #ef4444;
+}
+
+.house-azzurro {
+    color: #06b6d4;
+}
+
+
+.choice-intro {
+    transition: all 0.2s ease;
+   
+    color: #f9fafb !important;
+    border-radius: 16px !important;
+    padding: 16px 20px !important;
+     transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    border-color: rgba(167, 139, 250, 0.6) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+.choice-intro:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 0px 0px rgba(139, 92, 246, 0.4);
+}
