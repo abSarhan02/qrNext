@@ -106,4 +106,9 @@ style.textContent = `
 document.head.appendChild(style);
 
 
-initBackgroundMusic();
+document.addEventListener("click", function startAudio() {
+  initBackgroundMusic();
+  document.removeEventListener("click", startAudio);
+});
+
+
